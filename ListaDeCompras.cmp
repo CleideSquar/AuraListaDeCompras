@@ -1,0 +1,60 @@
+<aura:component
+  implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId"
+  access="global"
+>
+    
+  <lightning:card>
+      
+    <!-- Adiciona um título em um elemento H1 com classe "titulo" -->
+    <h1 class="titulo">Lista de Compras para Escritório</h1>
+      
+    <lightning:recordEditForm
+      aura:id="recordEditForm"
+      objectApiName="Compras_Internas__c"
+      onsuccess="{!c.showToast}"
+    >
+      <lightning:messages />
+        
+      <!-- Adiciona um container com classe "slds-col" e espaçamento horizontal médio -->
+      <div class="slds-col slds-p-horizontal_medium">
+          
+        <!-- Adiciona um campo de input para o campo "Nome_do_Produto__c" -->
+        <lightning:inputField fieldName="Nome_do_Produto__c" />
+          
+        <!-- Adiciona um campo de input para o campo "Data_da_Compra__c" com id "dataField" -->
+        <lightning:inputField
+          fieldName="Data_da_Compra__c"
+          aura:id="dataField"
+        />
+          
+        <!-- Adiciona um campo de input para o campo "Preco_Unitario__c" com id "precoUnitarioField" e uma função onchange que chama o método "calculatePrecoTotal" definido no controlador -->
+        <lightning:inputField
+          fieldName="Preco_Unitario__c"
+          aura:id="precoUnitarioField"
+          onchange="{!c.calculatePrecoTotal}"
+        />
+          
+        <!-- Adiciona um campo de input para o campo "Quantidade__c" com id "quantidadeField" e uma função onchange que chama o método "calculatePrecoTotal" definido no controlador -->
+        <lightning:inputField
+          fieldName="Quantidade__c"
+          aura:id="quantidadeField"
+          onchange="{!c.calculatePrecoTotal}"
+        />
+          
+        <!-- Adiciona um campo de input para o campo "Preco_Total__c" com id "precoTotalField" -->
+        <lightning:inputField
+          fieldName="Preco_Total__c"
+          aura:id="precoTotalField"
+        />
+          
+        <!-- Adiciona um botão de envio com classe "slds-grid", que quebra em várias colunas e com classe "slds-col_bump-left", que adiciona um pequeno espaçamento à esquerda -->
+        <lightning:button
+          class="slds-grid slds-wrap slds-col_bump-left"
+          variant="success"
+          type="submit"
+          label="Enviar"
+        />
+      </div>
+    </lightning:recordEditForm>
+  </lightning:card>
+</aura:component>

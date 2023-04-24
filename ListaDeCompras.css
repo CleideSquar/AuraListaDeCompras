@@ -1,0 +1,6 @@
+/* Define o estilo para elementos com a classe .titulo dentro de .THIS */
+.THIS .titulo {
+    font-size: 18px; /* Define o tamanho da fonte */
+    text-align: center; /* Centraliza o texto */
+    font-weight: bold; /* Define a espessura da fonte como negrito */
+}
